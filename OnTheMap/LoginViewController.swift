@@ -18,5 +18,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBAction func LoginPressed(sender: AnyObject) {
+        // First thing to do is check if we have network connectivity
+        // If we don't display an error to the user letting them know
+        
+    }
 }
 

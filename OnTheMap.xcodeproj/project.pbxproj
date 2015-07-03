@@ -15,6 +15,7 @@
 		27DC8ADA1B47272600163E9B /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AD91B47272600163E9B /* OnTheMapTests.swift */; };
 		27DC8AE91B47360800163E9B /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AE81B47360800163E9B /* OTMConstants.swift */; };
 		27DC8AEB1B4736E400163E9B /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AEA1B4736E400163E9B /* OTMClient.swift */; };
+		27DC8AEE1B4739F700163E9B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AED1B4739F700163E9B /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		27DC8AD91B47272600163E9B /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
 		27DC8AE81B47360800163E9B /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
 		27DC8AEA1B4736E400163E9B /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
+		27DC8AEC1B4739F700163E9B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		27DC8AED1B4739F700163E9B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 		27DC8AE31B472CDB00163E9B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27DC8AEC1B4739F700163E9B /* Reachability.h */,
+				27DC8AED1B4739F700163E9B /* Reachability.m */,
 				27DC8AE81B47360800163E9B /* OTMConstants.swift */,
 				27DC8AEA1B4736E400163E9B /* OTMClient.swift */,
 			);
@@ -246,6 +251,7 @@
 				27DC8AEB1B4736E400163E9B /* OTMClient.swift in Sources */,
 				27DC8AE91B47360800163E9B /* OTMConstants.swift in Sources */,
 				27DC8AC41B47272600163E9B /* AppDelegate.swift in Sources */,
+				27DC8AEE1B4739F700163E9B /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
