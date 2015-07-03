@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -25,13 +26,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="udacity" translatesAutoresizingMaskIntoConstraints="NO" id="mtG-dw-eie">
                                 <rect key="frame" x="180" y="73" width="240" height="128"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sA-Jc-bYW">
-                                <rect key="frame" x="252" y="255" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sA-Jc-bYW">
+                                <rect key="frame" x="16" y="255" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YK7-aq-Qrh">
-                                <rect key="frame" x="252" y="305" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YK7-aq-Qrh">
+                                <rect key="frame" x="16" y="305" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -56,9 +57,13 @@
                             <constraint firstItem="Ym3-tO-EwO" firstAttribute="top" secondItem="k0p-0w-6ww" secondAttribute="bottom" constant="22" id="58C-zs-qKs"/>
                             <constraint firstAttribute="centerY" secondItem="mtG-dw-eie" secondAttribute="centerY" constant="163" id="OdT-cH-Vxy"/>
                             <constraint firstAttribute="centerX" secondItem="0sA-Jc-bYW" secondAttribute="centerX" constant="-0.5" id="XXh-pn-PUQ"/>
+                            <constraint firstItem="0sA-Jc-bYW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YZO-gD-4oq"/>
                             <constraint firstItem="YK7-aq-Qrh" firstAttribute="top" secondItem="0sA-Jc-bYW" secondAttribute="bottom" constant="20" id="Z1A-Kp-fQz"/>
                             <constraint firstAttribute="centerX" secondItem="Ym3-tO-EwO" secondAttribute="centerX" id="bOx-hC-EFR"/>
+                            <constraint firstItem="YK7-aq-Qrh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dAn-cA-F9s"/>
+                            <constraint firstItem="0sA-Jc-bYW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="e2a-4w-pn2"/>
                             <constraint firstItem="k0p-0w-6ww" firstAttribute="top" secondItem="YK7-aq-Qrh" secondAttribute="bottom" constant="23" id="eZE-mv-qId"/>
+                            <constraint firstItem="YK7-aq-Qrh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ebr-Zs-P1E"/>
                             <constraint firstAttribute="centerX" secondItem="k0p-0w-6ww" secondAttribute="centerX" id="fQp-Pz-rT7"/>
                             <constraint firstAttribute="centerX" secondItem="upv-0N-XZP" secondAttribute="centerX" id="oog-jH-x3k"/>
                             <constraint firstItem="upv-0N-XZP" firstAttribute="top" secondItem="mtG-dw-eie" secondAttribute="bottom" constant="16" id="rk2-xs-4ic"/>
