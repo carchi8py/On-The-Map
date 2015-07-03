@@ -17,8 +17,12 @@ extension OTMClient {
     //Methods
     struct Methods {
         static let UdacitySession = "session"
+        static let UdacityUserData = "users/{id}"
     }
     //URL Keys
+    struct URLKeys {
+        static let UserID = "id"
+    }
     //Parameter Keys
     //JSON Body Keys
     struct  JSONBodyKey {
@@ -32,6 +36,9 @@ extension OTMClient {
         static let SessionID = "id"
         static let UdacityAccount = "account"
         static let UdacityKey = "key"
+        static let UdacityUserInfo = "user"
+        static let UdacityFirstName = "first_name"
+        static let UdacityLastName = "last_name"
         
         //Student Info
         static let StudentResults = "results"

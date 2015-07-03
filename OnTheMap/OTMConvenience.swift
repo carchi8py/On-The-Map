@@ -45,7 +45,7 @@ extension OTMClient {
                             OTMClient.sharedInstance().loggedInUserInfo.uniqueKey = udacityKey
                             
                             //Get others user for the map
-                            self.getPublicUserData(udacityKey) { success, error in
+                            self.getUserData(udacityKey) { success, error in
                                 if success {
                                     // Successful Login
                                     completionHandler(success: true, error: nil)
@@ -59,6 +59,32 @@ extension OTMClient {
                 } else {
                     
                 }
+            }
+        }
+    }
+    func getUserData(udacityID: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
+        
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        var parameters = [String: AnyObject]()
+        var mutableMethod : String = Methods.UdacityUserData
+        mutableMethod = OTMClient.subtituteKeyInMethod(mutableMethod, key: OTMClient.URLKeys.UserID, value:udacityID)!
+        
+        /* 2. Make the request */
+        taskForUdacityGETMethod(mutableMethod, parameters: parameters) { JSONResult, error in
+            
+            /* 3. Send the desired value(s) to completion handler */
+            if let error = error {
+                completionHandler(success: false, error: error)
+            } else {
+                if let userInfo = JSONResult.valueForKey(OTMClient.JSONResponseKeys.UdacityUserInfo) as? NSDictionary {
+                    if let firstName = userInfo.valueForKey(OTMClient.JSONResponseKeys.UdacityFirstName) as? String {
+                        OTMClient.sharedInstance().loggedInUserInfo.firstName = firstName
+                    }
+                    if let lastName = userInfo.valueForKey(OTMClient.JSONResponseKeys.UdacityLastName) as? String {
+                        OTMClient.sharedInstance().loggedInUserInfo.lastName = lastName
+                    }
+                }
+                completionHandler(success: true, error: error)
             }
         }
     }
