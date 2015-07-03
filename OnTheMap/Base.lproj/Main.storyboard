@@ -69,6 +69,11 @@
                             <constraint firstItem="upv-0N-XZP" firstAttribute="top" secondItem="mtG-dw-eie" secondAttribute="bottom" constant="16" id="rk2-xs-4ic"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="0sA-Jc-bYW" id="VRx-5V-HeN"/>
+                        <outlet property="logInButton" destination="k0p-0w-6ww" id="U20-ZQ-Ifo"/>
+                        <outlet property="password" destination="YK7-aq-Qrh" id="kEV-Lf-NTB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
