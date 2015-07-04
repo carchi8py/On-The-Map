@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBAction func LoginPressed(sender: AnyObject) {
@@ -28,13 +27,13 @@ class LoginViewController: UIViewController {
         OTMClient.sharedInstance().authenticateWithUdacity(email.text, password: password.text, completionHandler: { success,error in
             
             if success {
-                println("w00t it worked")
+                println("it worked")
                 self.loginWorked()
             } else {
-                println("It failed")
+                self.displayError(error!.localizedDescription)
+                println("If Failed")
             }
         })
-
     }
     
     func loginWorked() {
@@ -44,6 +43,15 @@ class LoginViewController: UIViewController {
         dispatch_async(dispatch_get_main_queue()) {
             self.performSegueWithIdentifier("toNavigationController", sender: self)
         }
+    }
+    
+    func displayError(errorString: String?)
+    {
+        self.displayUIAlert("Missing information!", msg: "Must provide username and password to login.")
+    }
+    
+    func displayUIAlert(title: String, msg: String){
+        UIAlertView(title: title, message: msg, delegate: nil, cancelButtonTitle: "Ok").show()
     }
 }
 

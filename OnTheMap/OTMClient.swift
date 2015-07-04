@@ -62,13 +62,17 @@ class OTMClient : NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: nil, error: &jsonifyError)
+        println("WE are about to call the task")
+        request.timeoutInterval = 5.0
         
         /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) { data, responce, downloadError in
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             if let error = downloadError {
+                print("Udacity post failed")
                 completionHandler(result: nil, error: downloadError)
             } else {
+                print("We got data")
                 let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
                 OTMClient.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
             }
@@ -132,6 +136,7 @@ class OTMClient : NSObject {
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             if let error = downloadError {
+                print("There an error")
                 completionHandler(result: nil, error: error)
             } else {
                 OTMClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
@@ -194,8 +199,10 @@ class OTMClient : NSObject {
         let parsedResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError)
         
         if let error = parsingError {
+            print("Error in json")
             completionHandler(result: nil, error: error)
         } else {
+            print("We are good in json")
             completionHandler(result: parsedResult, error: nil)
         }
     }

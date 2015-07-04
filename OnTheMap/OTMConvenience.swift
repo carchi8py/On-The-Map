@@ -27,10 +27,12 @@ extension OTMClient {
             OTMClient.JSONBodyKey.Udacity: details]
         
         /* 2. Make the request */
+        println("Hitting post")
         let task = taskForUdacityPost(Methods.UdacitySession, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
         
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
+                println("Error 1")
                 completionHandler(success: false, error: error)
             } else {
                 
@@ -48,16 +50,18 @@ extension OTMClient {
                             self.getUserData(udacityKey) { success, error in
                                 if success {
                                     // Successful Login
+                                    println("Authenticate worked")
                                     completionHandler(success: true, error: nil)
                                 }
                                 else {
+                                    println("Authenticate Failed")
                                     completionHandler(success: false, error: nil)
                                 }
                             }
                         }
                     }
                 } else {
-                    
+                    completionHandler(success: false, error: NSError(domain: "Authentication Failure", code: 8001, userInfo: nil))
                 }
             }
         }
