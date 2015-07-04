@@ -54,6 +54,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Bev-5x-itb">
+                                <rect key="frame" x="281" y="281" width="37" height="37"/>
+                                <color key="color" red="0.066666666669999999" green="0.59999999999999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.57866467929999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -71,7 +75,9 @@
                             <constraint firstItem="k0p-0w-6ww" firstAttribute="top" secondItem="YK7-aq-Qrh" secondAttribute="bottom" constant="23" id="eZE-mv-qId"/>
                             <constraint firstItem="YK7-aq-Qrh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ebr-Zs-P1E"/>
                             <constraint firstAttribute="centerX" secondItem="k0p-0w-6ww" secondAttribute="centerX" id="fQp-Pz-rT7"/>
+                            <constraint firstAttribute="centerY" secondItem="Bev-5x-itb" secondAttribute="centerY" constant="0.5" id="hTr-0P-ILX"/>
                             <constraint firstAttribute="centerX" secondItem="upv-0N-XZP" secondAttribute="centerX" id="oog-jH-x3k"/>
+                            <constraint firstAttribute="centerX" secondItem="Bev-5x-itb" secondAttribute="centerX" constant="0.5" id="quI-fk-K5L"/>
                             <constraint firstItem="upv-0N-XZP" firstAttribute="top" secondItem="mtG-dw-eie" secondAttribute="bottom" constant="16" id="rk2-xs-4ic"/>
                         </constraints>
                     </view>
@@ -79,6 +85,7 @@
                         <outlet property="email" destination="0sA-Jc-bYW" id="VRx-5V-HeN"/>
                         <outlet property="logInButton" destination="k0p-0w-6ww" id="U20-ZQ-Ifo"/>
                         <outlet property="password" destination="YK7-aq-Qrh" id="kEV-Lf-NTB"/>
+                        <outlet property="waitingOnServer" destination="Bev-5x-itb" id="vig-EN-8NE"/>
                         <segue destination="JEa-tV-YGQ" kind="presentation" identifier="toNavigationController" id="26x-7q-BGv"/>
                     </connections>
                 </viewController>

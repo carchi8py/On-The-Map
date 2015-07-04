@@ -13,12 +13,20 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var waitingOnServer: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.waitingOnServer.hidden = true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.waitingOnServer.hidden = true
     }
     
     @IBAction func LoginPressed(sender: AnyObject) {
+        self.waitingOnServer.startAnimating()
+        self.waitingOnServer.hidden = false
         authenticateWithUdacity()
         
     }
@@ -26,6 +34,7 @@ class LoginViewController: UIViewController {
     func authenticateWithUdacity() {
         OTMClient.sharedInstance().authenticateWithUdacity(email.text, password: password.text, completionHandler: { success,error in
             
+            self.waitingOnServer.stopAnimating()
             if success {
                 println("it worked")
                 self.loginWorked()
