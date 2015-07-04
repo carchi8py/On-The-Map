@@ -273,6 +273,7 @@
                     </view>
                     <connections>
                         <outlet property="FirstView" destination="I2E-t5-Dxu" id="ebW-D3-zPo"/>
+                        <outlet property="LInkTextField" destination="57L-9u-ZjT" id="dHN-w9-2EB"/>
                         <outlet property="LocationTextField" destination="JWQ-wT-udh" id="fy8-xq-RUH"/>
                         <outlet property="SecondView" destination="9Jz-iR-YiD" id="O2f-uV-OD2"/>
                     </connections>
