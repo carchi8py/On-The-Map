@@ -198,6 +198,9 @@
                                                 <state key="normal" title="Find on the Map">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="FindTouched:" destination="POA-IF-dMc" eventType="touchUpInside" id="WQh-wx-HHD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -237,6 +240,11 @@
                             <constraint firstItem="Zrw-Dh-fLY" firstAttribute="top" secondItem="Jtf-Gj-QY9" secondAttribute="topMargin" id="gJR-w5-hYc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="FindButton" destination="8fK-cV-mv2" id="BTF-fU-B48"/>
+                        <outlet property="FirstView" destination="Zrw-Dh-fLY" id="qkG-BR-gkC"/>
+                        <outlet property="LocationTextField" destination="j8P-Tw-kxj" id="bYB-5b-FOt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H01-RG-dhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
