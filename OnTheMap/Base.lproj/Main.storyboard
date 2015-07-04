@@ -173,6 +173,9 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="cancleTouched:" destination="POA-IF-dMc" eventType="touchUpInside" id="nuW-uL-bWd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
