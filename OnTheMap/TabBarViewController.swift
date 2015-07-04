@@ -25,7 +25,15 @@ class TabBarViewController: UITabBarController {
     }
     
     func refreshTouched() {
-        
+        // Load the student information
+            Students.sharedInstance().getStudentInformation() { success, error in
+            if success {
+                NSNotificationCenter.defaultCenter().postNotificationName(OTMClient.Notifications.StudentInformationDownloaded, object: self)
+            }
+            else {
+                println("Refresh touched failed")
+            }
+        }
     }
     
     @IBAction func logOutTouched(sender: AnyObject) {

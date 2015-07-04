@@ -31,4 +31,14 @@ class StudentInfo {
         mapString = jsonDisctionary[OTMClient.JSONResponseKeys.MapString] as! String
         mediaURL = jsonDisctionary[OTMClient.JSONResponseKeys.MediaURL] as! String
     }
+    
+    static func studentsFromResults(results: [[String : AnyObject]]) -> [StudentInfo] {
+        var students = [StudentInfo]()
+        
+        for result in results {
+            students.append(StudentInfo(jsonDisctionary: result))
+        }
+        
+        return students
+    }
 }

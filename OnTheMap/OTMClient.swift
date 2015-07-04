@@ -115,22 +115,17 @@ class OTMClient : NSObject {
         return task
     }
     
-    func taskForParseGet(method: String, httpMethod: String, parameters: [String : AnyObject], jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForParseGet(method: String, parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* 1. Set the parameters */
         var mutableParameters = parameters
         
         /* 2/3. Build the URL and configure the request */
         let urlString = Constants.ParseBaseURL + method + OTMClient.escapedParameters(mutableParameters)
-        
         let url = NSURL(string: urlString)!
         let request = NSMutableURLRequest(URL: url)
-        var jsonifyError: NSError? = nil
-        request.HTTPMethod = httpMethod
         request.addValue(OTMClient.Constants.ParseAppID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(OTMClient.Constants.ParseRestID, forHTTPHeaderField: "X-Parse-REST-API-Key")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: nil, error: &jsonifyError)
         
         /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) {data, response, downloadError in
@@ -142,7 +137,7 @@ class OTMClient : NSObject {
                 OTMClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
             }
         }
-
+        
         /* 7. Start the request */
         task.resume()
         return task

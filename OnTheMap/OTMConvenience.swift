@@ -111,6 +111,79 @@ extension OTMClient {
         }
     }
     
+    func getAllStudentInformation(completionHandler: (success: Bool, result: [StudentInfo]?, error: NSError?) -> Void) {
+        
+        // First, fetch the total count of all students
+        let parameters = [
+            OTMClient.ParameterKeys.Limit: 0,
+            OTMClient.ParameterKeys.Count: 1
+        ]
+        
+        // Make the request
+        taskForParseGet(OTMClient.Methods.ParseStudentLocation, parameters: parameters) { JSONResult, error in
+            
+            if let error = error {
+                // Connection failure or request timeout on POST
+                completionHandler(success: false, result: nil, error: error)
+            } else {
+                
+                if let count = JSONResult.valueForKey(OTMClient.JSONResponseKeys.Count) as? Int {
+                    // Total number of students
+                    var numberOfFetches = Int(floor( Double(count) / Double(OTMClient.Constants.FetchLimit) ))
+                    
+                    var students = [StudentInfo]()
+                    self.getStudentInformationBatch(numberOfFetches) { success, results, error in
+                        
+                        if success {
+                            if let result = results {
+                                // Combine the arrays together
+                                students += result
+                                println("Student count: \(students.count)")
+                                completionHandler(success: true, result: students, error: nil)
+                            }
+                            else {
+                                completionHandler(success: false, result: nil, error: NSError(domain: "getStudentInformationBatch parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getStudentInformationBatch"]))
+                            }
+                        }
+                    }
+                } else {
+                    completionHandler(success: false, result: nil, error: NSError(domain: "getAllStudentInformation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getAllStudentInformation"]))
+                }
+            }
+        }
+    }
+    
+    // Retrieve the student information in batches. With the current settings, data is retrieved in batches of 100.
+    // So if there are 250 students, information will be retrieved in 3 requests
+    func getStudentInformationBatch(repeat: Int, completionHandler: (success: Bool, result: [StudentInfo]?, error: NSError?) -> Void) {
+        
+        if repeat >= 0 {
+            
+            getStudentInformationBatch(repeat - 1) { success, result, error in
+                completionHandler(success: true, result: result, error: error)
+            }
+            usleep(20000)
+            
+            /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+            let parameters = [
+                OTMClient.ParameterKeys.Limit: OTMClient.Constants.FetchLimit,
+                OTMClient.ParameterKeys.Skip: repeat * OTMClient.Constants.FetchLimit
+            ]
+            
+            /* 2. Make the request */
+            taskForParseGet(OTMClient.Methods.ParseStudentLocation, parameters: parameters) { JSONResult, error in
+                
+                /* 3. Send the desired value(s) to completion handler */
+                if let results = JSONResult.valueForKey(OTMClient.JSONResponseKeys.StudentResults) as? [[String : AnyObject]] {
+                    // Parse the student information
+                    var studentBatch = StudentInfo.studentsFromResults(results)
+                    completionHandler(success: true, result: studentBatch, error: error)
+                }
+                println(parameters)
+            }
+        }
+    }
+    
     func getUserData(udacityID: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
