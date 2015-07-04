@@ -154,8 +154,10 @@
         <!--On The Map-->
         <scene sceneID="tKs-eC-Yt1">
             <objects>
-                <tabBarController id="nXQ-Ux-Ms9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="On The Map" id="fuN-Xf-6od"/>
+                <tabBarController id="nXQ-Ux-Ms9" customClass="TabBarViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="On The Map" id="fuN-Xf-6od">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="up3-wQ-cr5"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="fUG-3y-o0g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
