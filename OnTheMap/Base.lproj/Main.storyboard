@@ -151,13 +151,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCe-jw-R2Q">
-                                                <rect key="frame" x="242" y="29" width="116" height="21"/>
+                                                <rect key="frame" x="242" y="29" width="115.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jth-y6-r9O">
-                                                <rect key="frame" x="267" y="63" width="66" height="21"/>
+                                                <rect key="frame" x="267" y="62" width="65.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -168,21 +168,46 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww9-rQ-Nhu">
+                                                <rect key="frame" x="544" y="8" width="48" height="30"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="jCe-jw-R2Q" secondAttribute="centerX" id="D4O-Eu-vZW"/>
+                                            <constraint firstAttribute="trailing" secondItem="ww9-rQ-Nhu" secondAttribute="trailing" constant="8" id="Fh7-WA-ahN"/>
                                             <constraint firstItem="Jth-y6-r9O" firstAttribute="top" secondItem="jCe-jw-R2Q" secondAttribute="bottom" constant="13" id="Gug-Mb-0F0"/>
                                             <constraint firstItem="a8l-R0-PWO" firstAttribute="top" secondItem="Jth-y6-r9O" secondAttribute="bottom" constant="14" id="OK5-AL-yTX"/>
                                             <constraint firstAttribute="centerX" secondItem="a8l-R0-PWO" secondAttribute="centerX" constant="-0.5" id="PQy-KU-YCX"/>
                                             <constraint firstAttribute="centerX" secondItem="Jth-y6-r9O" secondAttribute="centerX" id="V3j-T8-5lZ"/>
+                                            <constraint firstItem="ww9-rQ-Nhu" firstAttribute="top" secondItem="ha6-NP-Plb" secondAttribute="top" constant="8" id="dOt-E5-vqC"/>
                                             <constraint firstItem="jCe-jw-R2Q" firstAttribute="top" secondItem="ha6-NP-Plb" secondAttribute="top" constant="29" id="yLt-SU-wDi"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MS8-uE-cGx">
                                         <rect key="frame" x="0.0" y="492" width="600" height="108"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fK-cV-mv2">
+                                                <rect key="frame" x="243" y="39" width="113" height="30"/>
+                                                <state key="normal" title="Find on the Map">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="8fK-cV-mv2" firstAttribute="top" secondItem="MS8-uE-cGx" secondAttribute="top" constant="39" id="5u5-un-FeU"/>
+                                            <constraint firstAttribute="centerX" secondItem="8fK-cV-mv2" secondAttribute="centerX" id="C2N-4b-ktc"/>
+                                        </constraints>
                                     </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-Tw-kxj">
+                                        <rect key="frame" x="8" y="196" width="584" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.59999999999999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -190,12 +215,15 @@
                                     <constraint firstAttribute="trailing" secondItem="ha6-NP-Plb" secondAttribute="trailing" id="ArN-hm-n0b"/>
                                     <constraint firstItem="ha6-NP-Plb" firstAttribute="top" secondItem="Zrw-Dh-fLY" secondAttribute="top" id="CPF-fZ-MVu"/>
                                     <constraint firstItem="ha6-NP-Plb" firstAttribute="leading" secondItem="Zrw-Dh-fLY" secondAttribute="leading" id="H6K-zw-Djo"/>
+                                    <constraint firstItem="j8P-Tw-kxj" firstAttribute="top" secondItem="ha6-NP-Plb" secondAttribute="bottom" constant="27" id="S3Q-Bk-4gs"/>
                                     <constraint firstAttribute="bottom" secondItem="MS8-uE-cGx" secondAttribute="bottom" id="UTU-ic-7bL"/>
                                     <constraint firstItem="ha6-NP-Plb" firstAttribute="top" secondItem="Zrw-Dh-fLY" secondAttribute="top" id="Yzw-94-aSp"/>
                                     <constraint firstItem="MS8-uE-cGx" firstAttribute="top" secondItem="ha6-NP-Plb" secondAttribute="bottom" constant="323" id="kKH-iJ-e9g"/>
+                                    <constraint firstItem="j8P-Tw-kxj" firstAttribute="leading" secondItem="Zrw-Dh-fLY" secondAttribute="leading" constant="8" id="lxE-Rv-men"/>
                                     <constraint firstAttribute="trailing" secondItem="MS8-uE-cGx" secondAttribute="trailing" id="uHw-nM-So1"/>
                                     <constraint firstAttribute="bottom" secondItem="MS8-uE-cGx" secondAttribute="bottom" id="uZ2-fc-hR1"/>
                                     <constraint firstItem="MS8-uE-cGx" firstAttribute="top" secondItem="ha6-NP-Plb" secondAttribute="bottom" constant="323" id="wMe-4i-6JW"/>
+                                    <constraint firstAttribute="trailing" secondItem="j8P-Tw-kxj" secondAttribute="trailing" constant="8" id="wS2-KP-px3"/>
                                 </constraints>
                             </view>
                         </subviews>
