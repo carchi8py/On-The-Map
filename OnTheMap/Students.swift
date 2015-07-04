@@ -28,6 +28,14 @@ class Students {
         }
     }
     
+    func didStudentPreviouslyPost(uniqueKey: String) -> Bool {
+        
+        let student = students.filter{ student in
+            student.uniqueKey == OTMClient.sharedInstance().loggedInUserInfo.uniqueKey }
+        
+        return student.isEmpty ? false : true
+    }
+    
     class func sharedInstance() -> Students {
         struct Singleton {
             static var sharedInstance = Students()

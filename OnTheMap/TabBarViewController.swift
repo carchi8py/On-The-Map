@@ -21,6 +21,13 @@ class TabBarViewController: UITabBarController {
     }
     
     func pinTouched() {
+        //Check to see if a user has allready post if not let them post
+        if Students.sharedInstance().didStudentPreviouslyPost(OTMClient.sharedInstance().loggedInUserInfo.uniqueKey) {
+        } else {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("toPostViewController", sender: self)
+            }
+        }
         
     }
     

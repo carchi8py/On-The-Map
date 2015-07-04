@@ -130,7 +130,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9t-Q4-7yT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2583" y="-480"/>
+            <point key="canvasLocation" x="2583" y="-46"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="fx4-OA-ZqB">
+            <objects>
+                <viewController id="POA-IF-dMc" customClass="PostViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oI8-jo-8ba"/>
+                        <viewControllerLayoutGuide type="bottom" id="nPc-Qu-6cU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jtf-Gj-QY9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H01-RG-dhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1756" y="1077"/>
         </scene>
         <!--List-->
         <scene sceneID="NEZ-hw-rbc">
@@ -176,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3N3-e4-NQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2583" y="283"/>
+            <point key="canvasLocation" x="2583" y="647"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="tKs-eC-Yt1">
@@ -198,6 +216,7 @@
                     <connections>
                         <segue destination="vW7-tE-wCS" kind="relationship" relationship="viewControllers" id="6pd-7Z-nLG"/>
                         <segue destination="7Lu-Nx-uQO" kind="relationship" relationship="viewControllers" id="X4e-89-xA4"/>
+                        <segue destination="POA-IF-dMc" kind="presentation" identifier="toPostViewController" id="5hY-8z-9eU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpl-yQ-j8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
