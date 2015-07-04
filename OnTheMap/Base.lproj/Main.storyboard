@@ -144,12 +144,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2E-t5-Dxu">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2E-t5-Dxu">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvT-LU-ivc">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vx-cL-DyZ">
+                                                <rect key="frame" x="544" y="8" width="48" height="30"/>
+                                                <state key="normal" title="Cancle">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancleTouched:" destination="POA-IF-dMc" eventType="touchUpInside" id="lXK-WU-H9b"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="3vx-cL-DyZ" secondAttribute="trailing" constant="8" id="Ndl-UM-Lvw"/>
+                                            <constraint firstItem="3vx-cL-DyZ" firstAttribute="top" secondItem="wvT-LU-ivc" secondAttribute="top" constant="8" id="Vwi-XC-WmV"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCX-nv-FgC">
                                         <rect key="frame" x="0.0" y="467" width="600" height="133"/>
