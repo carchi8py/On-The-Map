@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="1059" y="283"/>
         </scene>
-        <!--Item 2-->
+        <!--List-->
         <scene sceneID="EVx-Kl-u1O">
             <objects>
                 <viewController id="1n0-zd-Z66" sceneMemberID="viewController">
@@ -112,13 +112,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="cBr-b0-0h6"/>
+                    <tabBarItem key="tabBarItem" title="List" image="list" id="sRE-uN-eKO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZn-Ih-lnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2583" y="283"/>
         </scene>
-        <!--Item 1-->
+        <!--Map-->
         <scene sceneID="3or-tu-cuC">
             <objects>
                 <viewController id="vW7-tE-wCS" sceneMemberID="viewController">
@@ -131,17 +131,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="MoV-O0-Auh"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="g0T-kE-ID4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9t-Q4-7yT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2583" y="-480"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--On The Map-->
         <scene sceneID="tKs-eC-Yt1">
             <objects>
                 <tabBarController id="nXQ-Ux-Ms9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="fuN-Xf-6od"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="fuN-Xf-6od"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="fUG-3y-o0g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -159,6 +159,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list" width="32" height="32"/>
+        <image name="map" width="32" height="32"/>
         <image name="udacity" width="256" height="256"/>
     </resources>
 </document>
