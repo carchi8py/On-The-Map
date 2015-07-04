@@ -87,6 +87,30 @@ extension OTMClient {
         }
     }
     
+    func getLocationData(udacityID: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        let dictionary = [OTMClient.JSONResponseKeys.UniqueKey: udacityID]
+        let json = NSJSONSerialization.dataWithJSONObject(dictionary, options: nil, error: nil)
+        let parameters = [OTMClient.ParameterKeys.Where: json!]
+        
+        /* 2. Make the request */
+        taskForParseGet(OTMClient.Methods.ParseStudentLocation, parameters: parameters) { JSONResult, error in
+            
+            /* 3. Send the desired value(s) to completion handler */
+            if let error = error {
+                completionHandler(success: false, error: error)
+            } else {
+                if let results = JSONResult.valueForKey(OTMClient.JSONResponseKeys.StudentResults) as? NSDictionary {
+                    if let objectID = results.valueForKey(OTMClient.JSONResponseKeys.ObjectID) as? String {
+                        completionHandler(success: true, error: nil)
+                    }
+                } else {
+                    completionHandler(success: false, error: NSError(domain: "getStudentLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getStudentLocation"]))
+                }
+            }
+        }
+    }
+    
     func getUserData(udacityID: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */

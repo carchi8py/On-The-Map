@@ -13,17 +13,26 @@ extension OTMClient {
     //Constants
     struct Constants {
         static let UdacityBaseURL : String = "https://www.udacity.com/api/"
+        
+        static let ParseBaseURL: String = "https://api.parse.com/1/classes/"
+        static let ParseAppID: String = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
+        static let ParseRestID: String = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
     }
     //Methods
     struct Methods {
         static let UdacitySession = "session"
         static let UdacityUserData = "users/{id}"
+        
+        static let ParseStudentLocation = "StudentLocation"
     }
     //URL Keys
     struct URLKeys {
         static let UserID = "id"
     }
     //Parameter Keys
+    struct ParameterKeys {
+        static let Where = "where"
+    }
     //JSON Body Keys
     struct  JSONBodyKey {
         static let Udacity = "udacity"
