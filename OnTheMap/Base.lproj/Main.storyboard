@@ -224,7 +224,7 @@
                                     <constraint firstAttribute="bottom" secondItem="fCX-nv-FgC" secondAttribute="bottom" id="tfw-nv-6Ss"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jz-iR-YiD">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jz-iR-YiD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-qW-AbR">
@@ -255,17 +255,28 @@
                                             <constraint firstItem="57L-9u-ZjT" firstAttribute="leading" secondItem="gWU-qW-AbR" secondAttribute="leading" constant="8" id="oDM-rm-2Pt"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uE5-2U-GZT">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uE5-2U-GZT">
                                         <rect key="frame" x="0.0" y="144" width="600" height="456"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WBu-wd-bDU">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="456"/>
                                             </mapView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68Z-IN-rb9">
+                                                <rect key="frame" x="277" y="406" width="49" height="30"/>
+                                                <state key="normal" title="Submit">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="SubmitTouched:" destination="POA-IF-dMc" eventType="touchUpInside" id="RST-rW-lgc"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="WBu-wd-bDU" firstAttribute="width" secondItem="uE5-2U-GZT" secondAttribute="width" id="7VZ-z9-KJK"/>
                                             <constraint firstItem="WBu-wd-bDU" firstAttribute="height" secondItem="uE5-2U-GZT" secondAttribute="height" id="e3L-t2-EkM"/>
+                                            <constraint firstAttribute="centerX" secondItem="68Z-IN-rb9" secondAttribute="centerX" id="kzO-4j-KLE"/>
+                                            <constraint firstAttribute="bottom" secondItem="68Z-IN-rb9" secondAttribute="bottom" constant="20" id="qBp-Hl-4xH"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -294,6 +305,7 @@
                         <outlet property="LocationTextField" destination="JWQ-wT-udh" id="fy8-xq-RUH"/>
                         <outlet property="MapView" destination="WBu-wd-bDU" id="WeM-f3-jVp"/>
                         <outlet property="SecondView" destination="9Jz-iR-YiD" id="O2f-uV-OD2"/>
+                        <outlet property="SubmitTouched" destination="68Z-IN-rb9" id="lw0-5k-zAw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H01-RG-dhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
