@@ -232,12 +232,64 @@
                                     <constraint firstAttribute="trailing" secondItem="j8P-Tw-kxj" secondAttribute="trailing" constant="8" id="wS2-KP-px3"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4aX-Cc-SJh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oce-ME-Cdy">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="163"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEq-TV-dEY">
+                                                <rect key="frame" x="544" y="8" width="48" height="30"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Link to Share Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iRF-2w-Shr">
+                                                <rect key="frame" x="8" y="67" width="584" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.066666666669999999" green="0.59999999999999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="iRF-2w-Shr" secondAttribute="trailing" constant="8" id="2BP-AF-fCW"/>
+                                            <constraint firstItem="iRF-2w-Shr" firstAttribute="leading" secondItem="Oce-ME-Cdy" secondAttribute="leading" constant="8" id="F47-J3-gsL"/>
+                                            <constraint firstAttribute="trailing" secondItem="bEq-TV-dEY" secondAttribute="trailing" constant="8" id="KvT-Tm-Pso"/>
+                                            <constraint firstItem="bEq-TV-dEY" firstAttribute="top" secondItem="Oce-ME-Cdy" secondAttribute="top" constant="8" id="QT1-Rh-dmT"/>
+                                            <constraint firstItem="iRF-2w-Shr" firstAttribute="top" secondItem="Oce-ME-Cdy" secondAttribute="top" constant="67" id="bRh-7Z-cCL"/>
+                                        </constraints>
+                                    </view>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IGS-5u-OQs">
+                                        <rect key="frame" x="0.0" y="163" width="606" height="437"/>
+                                    </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCr-bp-5t2">
+                                        <rect key="frame" x="276" y="544" width="49" height="30"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="IGS-5u-OQs" firstAttribute="top" secondItem="Oce-ME-Cdy" secondAttribute="bottom" id="8Cq-VF-E9d"/>
+                                    <constraint firstItem="IGS-5u-OQs" firstAttribute="leading" secondItem="QCr-bp-5t2" secondAttribute="trailing" constant="-325" id="TQw-1F-f5t"/>
+                                    <constraint firstItem="Oce-ME-Cdy" firstAttribute="leading" secondItem="4aX-Cc-SJh" secondAttribute="leading" id="W90-fQ-boY"/>
+                                    <constraint firstAttribute="bottom" secondItem="IGS-5u-OQs" secondAttribute="bottom" id="YuE-Zi-Kho"/>
+                                    <constraint firstAttribute="trailing" secondItem="IGS-5u-OQs" secondAttribute="trailing" constant="-6" id="p94-sb-xjo"/>
+                                    <constraint firstAttribute="width" secondItem="Oce-ME-Cdy" secondAttribute="width" id="sRn-aQ-Fsn"/>
+                                    <constraint firstItem="IGS-5u-OQs" firstAttribute="leading" secondItem="4aX-Cc-SJh" secondAttribute="leading" id="sdk-tW-jg7"/>
+                                    <constraint firstItem="QCr-bp-5t2" firstAttribute="top" secondItem="IGS-5u-OQs" secondAttribute="bottom" constant="-56" id="zne-Fi-xfO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Zrw-Dh-fLY" firstAttribute="leading" secondItem="Jtf-Gj-QY9" secondAttribute="leadingMargin" constant="-16" id="7kV-Wc-RAP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zrw-Dh-fLY" secondAttribute="trailing" constant="-16" id="Mvp-zh-gFp"/>
                             <constraint firstItem="nPc-Qu-6cU" firstAttribute="top" secondItem="Zrw-Dh-fLY" secondAttribute="bottom" id="Rhn-tL-kI1"/>
+                            <constraint firstAttribute="width" secondItem="4aX-Cc-SJh" secondAttribute="width" id="edx-cG-uST"/>
                             <constraint firstItem="Zrw-Dh-fLY" firstAttribute="top" secondItem="Jtf-Gj-QY9" secondAttribute="topMargin" id="gJR-w5-hYc"/>
+                            <constraint firstAttribute="height" secondItem="4aX-Cc-SJh" secondAttribute="height" id="pxN-LF-95N"/>
                         </constraints>
                     </view>
                     <connections>
@@ -322,6 +374,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpl-yQ-j8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1756" y="283"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="662-OJ-Agb">
+            <objects>
+                <viewController id="6rc-O1-HkJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p2u-KK-Oj1"/>
+                        <viewControllerLayoutGuide type="bottom" id="p99-O2-wgQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kDf-Ig-nb1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vya-YO-XOU">
+                                <rect key="frame" x="112" y="286" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1mF-Qw-zor" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

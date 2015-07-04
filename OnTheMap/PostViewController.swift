@@ -16,6 +16,8 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var FindButton: UIButton!
     @IBOutlet weak var FirstView: UIView!
     
+    @IBOutlet weak var SecondView: UIView!
+    
      override func viewDidLoad() {
         super.viewDidLoad()
         LocationTextField.delegate = self
