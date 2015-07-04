@@ -156,7 +156,11 @@
             <objects>
                 <tabBarController id="nXQ-Ux-Ms9" customClass="TabBarViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="fuN-Xf-6od">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="up3-wQ-cr5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="up3-wQ-cr5">
+                            <connections>
+                                <action selector="logOutTouched:" destination="nXQ-Ux-Ms9" id="5vG-fH-SCH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="fUG-3y-o0g">

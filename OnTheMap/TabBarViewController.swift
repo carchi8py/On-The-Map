@@ -27,4 +27,17 @@ class TabBarViewController: UITabBarController {
     func refreshTouched() {
         
     }
+    
+    @IBAction func logOutTouched(sender: AnyObject) {
+        //Logs the user out if they push the bottom
+        OTMClient.sharedInstance().logOutWithUdacity() { success, error in
+            // Check if logout was successful
+            if success {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            else {
+                println("Something bad happened")
+            }
+        }
+    }
 }

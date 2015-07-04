@@ -62,6 +62,31 @@ extension OTMClient {
             }
         }
     }
+    
+    func logOutWithUdacity(completionHandler: (success: Bool, error: NSError?) -> Void) {
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        var parameters = [String: AnyObject]()
+    
+        /* 2. Make the request */
+        taskForUdacityGETMethod(Methods.UdacitySession, parameters: parameters) { JSONResult, error in
+            
+             /* 3. Send the desired value(s) to completion handler */
+            if let error = error {
+                completionHandler(success: false, error: error)
+            } else {
+                // Check if session dictionary exists
+                if let session = JSONResult.valueForKey(OTMClient.JSONResponseKeys.Session) as? NSDictionary {
+                    if let sessionID = session.valueForKey(OTMClient.JSONResponseKeys.SessionID) as? String {
+                        completionHandler(success: true, error: nil)
+                    }
+                } else {
+                    completionHandler(success: false, error: NSError(domain: "logoutUserFromUdacity parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse logoutUserFromUdacity"]))
+                }
+
+            }
+        }
+    }
+    
     func getUserData(udacityID: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
