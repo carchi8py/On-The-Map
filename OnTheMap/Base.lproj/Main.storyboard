@@ -194,9 +194,17 @@
                                         <rect key="frame" x="0.0" y="467" width="600" height="133"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWQ-wT-udh">
+                                        <rect key="frame" x="8" y="209" width="584" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.59999999999999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="JWQ-wT-udh" firstAttribute="top" secondItem="I2E-t5-Dxu" secondAttribute="top" constant="209" id="41y-kg-DSy"/>
+                                    <constraint firstItem="JWQ-wT-udh" firstAttribute="leading" secondItem="I2E-t5-Dxu" secondAttribute="leading" constant="8" id="GOv-XM-zhA"/>
+                                    <constraint firstAttribute="trailing" secondItem="JWQ-wT-udh" secondAttribute="trailing" constant="8" id="MVK-mZ-Kvy"/>
                                     <constraint firstItem="wvT-LU-ivc" firstAttribute="top" secondItem="I2E-t5-Dxu" secondAttribute="top" id="sef-2a-KKJ"/>
                                     <constraint firstAttribute="bottom" secondItem="fCX-nv-FgC" secondAttribute="bottom" id="tfw-nv-6Ss"/>
                                 </constraints>
@@ -211,6 +219,7 @@
                     </view>
                     <connections>
                         <outlet property="FirstView" destination="I2E-t5-Dxu" id="ebW-D3-zPo"/>
+                        <outlet property="LocationTextField" destination="JWQ-wT-udh" id="fy8-xq-RUH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H01-RG-dhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
