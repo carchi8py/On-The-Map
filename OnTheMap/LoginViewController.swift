@@ -29,11 +29,21 @@ class LoginViewController: UIViewController {
             
             if success {
                 println("w00t it worked")
+                self.loginWorked()
             } else {
                 println("It failed")
             }
         })
 
+    }
+    
+    func loginWorked() {
+        //This function get called when we have logged in, it segway's us to
+        //the map
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            self.performSegueWithIdentifier("toNavigationController", sender: self)
+        }
     }
 }
 
