@@ -31,7 +31,6 @@ class LoginViewController: UIViewController {
                 println("w00t it worked")
             } else {
                 println("It failed")
-                println(error)
             }
         })
 
