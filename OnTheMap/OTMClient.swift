@@ -36,6 +36,7 @@ class OTMClient : NSObject {
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             if let error = downloadError {
+                println("Error in GetMethod")
                 completionHandler(result: nil, error: error)
             } else {
                 let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
@@ -67,6 +68,7 @@ class OTMClient : NSObject {
         let task = session.dataTaskWithRequest(request) { data, responce, downloadError in
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             if let error = downloadError {
+                println("Error in Post Method")
                 completionHandler(result: nil, error: downloadError)
             } else {
                 OTMClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
@@ -95,6 +97,7 @@ class OTMClient : NSObject {
         let parsedResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError)
         
         if let error = parsingError {
+            println("Error on parse")
             completionHandler(result: nil, error: error)
         } else {
             completionHandler(result: parsedResult, error: nil)

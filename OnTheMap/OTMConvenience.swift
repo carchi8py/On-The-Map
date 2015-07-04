@@ -31,6 +31,7 @@ extension OTMClient {
         
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
+                println("Error at start of quthenticate")
                 completionHandler(success: false, error: error)
             } else {
                 
@@ -51,6 +52,7 @@ extension OTMClient {
                                     completionHandler(success: true, error: nil)
                                 }
                                 else {
+                                    println("Error at get User Data")
                                     completionHandler(success: false, error: nil)
                                 }
                             }

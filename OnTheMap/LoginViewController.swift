@@ -20,8 +20,21 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func LoginPressed(sender: AnyObject) {
-        OTMClient.sharedInstance().authenticateWithUdacity()
+        authenticateWithUdacity()
         
+    }
+    
+    func authenticateWithUdacity() {
+        OTMClient.sharedInstance().authenticateWithUdacity(email.text, password: password.text, completionHandler: { success,error in
+            
+            if success {
+                println("w00t it worked")
+            } else {
+                println("It failed")
+                println(error)
+            }
+        })
+
     }
 }
 
