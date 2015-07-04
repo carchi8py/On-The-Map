@@ -224,7 +224,7 @@
                                     <constraint firstAttribute="bottom" secondItem="fCX-nv-FgC" secondAttribute="bottom" id="tfw-nv-6Ss"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jz-iR-YiD">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jz-iR-YiD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-qW-AbR">
@@ -249,18 +249,29 @@
                                         <color key="backgroundColor" red="0.066666666669999999" green="0.59999999999999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="oBF-22-set" secondAttribute="trailing" constant="8" id="CuN-QP-yWe"/>
+                                            <constraint firstAttribute="height" constant="144" id="OAM-GY-rh1"/>
                                             <constraint firstItem="oBF-22-set" firstAttribute="top" secondItem="gWU-qW-AbR" secondAttribute="top" constant="8" id="UUp-I5-1Gv"/>
                                             <constraint firstAttribute="trailing" secondItem="57L-9u-ZjT" secondAttribute="trailing" constant="8" id="b7S-Ob-oDr"/>
                                             <constraint firstItem="57L-9u-ZjT" firstAttribute="leading" secondItem="gWU-qW-AbR" secondAttribute="leading" constant="8" id="oDM-rm-2Pt"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uE5-2U-GZT">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uE5-2U-GZT">
                                         <rect key="frame" x="0.0" y="144" width="600" height="456"/>
+                                        <subviews>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WBu-wd-bDU">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="456"/>
+                                            </mapView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="WBu-wd-bDU" firstAttribute="width" secondItem="uE5-2U-GZT" secondAttribute="width" id="7VZ-z9-KJK"/>
+                                            <constraint firstItem="WBu-wd-bDU" firstAttribute="height" secondItem="uE5-2U-GZT" secondAttribute="height" id="e3L-t2-EkM"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="uE5-2U-GZT" secondAttribute="bottom" id="E6u-ZN-SMg"/>
                                     <constraint firstItem="gWU-qW-AbR" firstAttribute="top" secondItem="9Jz-iR-YiD" secondAttribute="top" id="cTv-5G-SCa"/>
                                     <constraint firstItem="uE5-2U-GZT" firstAttribute="top" secondItem="gWU-qW-AbR" secondAttribute="bottom" id="sK1-bc-fMY"/>
                                 </constraints>
@@ -281,6 +292,7 @@
                         <outlet property="FirstView" destination="I2E-t5-Dxu" id="ebW-D3-zPo"/>
                         <outlet property="LInkTextField" destination="57L-9u-ZjT" id="dHN-w9-2EB"/>
                         <outlet property="LocationTextField" destination="JWQ-wT-udh" id="fy8-xq-RUH"/>
+                        <outlet property="MapView" destination="WBu-wd-bDU" id="WeM-f3-jVp"/>
                         <outlet property="SecondView" destination="9Jz-iR-YiD" id="O2f-uV-OD2"/>
                     </connections>
                 </viewController>
