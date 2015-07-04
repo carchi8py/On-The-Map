@@ -63,6 +63,7 @@ class OTMClient : NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: nil, error: &jsonifyError)
+        request.timeoutInterval = 5.0
         
         /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) { data, responce, downloadError in
@@ -71,7 +72,9 @@ class OTMClient : NSObject {
                 println("Error in Post Method")
                 completionHandler(result: nil, error: downloadError)
             } else {
-                OTMClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+                let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+                println(responce)
+                OTMClient.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
             }
         }
         /* 7. Start the request */

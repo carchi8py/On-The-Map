@@ -25,6 +25,7 @@ extension OTMClient {
         //Set the Udacity object
         let jsonBody: [String: AnyObject] = [
             OTMClient.JSONBodyKey.Udacity: details]
+        println(jsonBody)
         
         /* 2. Make the request */
         let task = taskForUdacityPost(Methods.UdacitySession, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
