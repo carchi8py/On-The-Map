@@ -159,11 +159,35 @@
                                                     <action selector="cancleTouched:" destination="POA-IF-dMc" eventType="touchUpInside" id="lXK-WU-H9b"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Where are you" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-r9-Ueg">
+                                                <rect key="frame" x="245" y="59" width="111" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Studying" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KN1-KF-RvO">
+                                                <rect key="frame" x="266" y="88" width="68" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="today?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEs-f0-lIl">
+                                                <rect key="frame" x="274" y="117" width="53" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="centerX" secondItem="KN1-KF-RvO" secondAttribute="centerX" id="1S2-CD-IiM"/>
+                                            <constraint firstItem="KN1-KF-RvO" firstAttribute="top" secondItem="jhX-r9-Ueg" secondAttribute="bottom" constant="8" id="2Fg-s3-1M3"/>
+                                            <constraint firstAttribute="centerX" secondItem="jhX-r9-Ueg" secondAttribute="centerX" constant="-0.5" id="5VA-8l-RQZ"/>
                                             <constraint firstAttribute="trailing" secondItem="3vx-cL-DyZ" secondAttribute="trailing" constant="8" id="Ndl-UM-Lvw"/>
                                             <constraint firstItem="3vx-cL-DyZ" firstAttribute="top" secondItem="wvT-LU-ivc" secondAttribute="top" constant="8" id="Vwi-XC-WmV"/>
+                                            <constraint firstItem="gEs-f0-lIl" firstAttribute="top" secondItem="KN1-KF-RvO" secondAttribute="bottom" constant="8" id="gns-aE-3X3"/>
+                                            <constraint firstItem="jhX-r9-Ueg" firstAttribute="top" secondItem="wvT-LU-ivc" secondAttribute="top" constant="59" id="kcC-9x-RpT"/>
+                                            <constraint firstAttribute="centerX" secondItem="gEs-f0-lIl" secondAttribute="centerX" constant="-0.5" id="nUA-7S-YbV"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCX-nv-FgC">
