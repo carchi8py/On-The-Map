@@ -20,6 +20,7 @@
 		27DC8AF71B476C2800163E9B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AF61B476C2800163E9B /* MapViewController.swift */; };
 		27DC8AF91B4770D600163E9B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AF81B4770D600163E9B /* TabBarViewController.swift */; };
 		27DC8AFD1B479B6500163E9B /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AFC1B479B6500163E9B /* Students.swift */; };
+		27DC8AFF1B47AADE00163E9B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AFE1B47AADE00163E9B /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		27DC8AF61B476C2800163E9B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		27DC8AF81B4770D600163E9B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		27DC8AFC1B479B6500163E9B /* Students.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
+		27DC8AFE1B47AADE00163E9B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				27DC8AC51B47272600163E9B /* LoginViewController.swift */,
 				27DC8AF61B476C2800163E9B /* MapViewController.swift */,
 				27DC8AF81B4770D600163E9B /* TabBarViewController.swift */,
+				27DC8AFE1B47AADE00163E9B /* TableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				27DC8AF91B4770D600163E9B /* TabBarViewController.swift in Sources */,
 				27DC8AF31B473EAA00163E9B /* OTMConvenience.swift in Sources */,
 				27DC8AC61B47272600163E9B /* LoginViewController.swift in Sources */,
+				27DC8AFF1B47AADE00163E9B /* TableViewController.swift in Sources */,
 				27DC8AEB1B4736E400163E9B /* OTMClient.swift in Sources */,
 				27DC8AF51B47500B00163E9B /* StudentInfo.swift in Sources */,
 				27DC8AE91B47360800163E9B /* OTMConstants.swift in Sources */,
