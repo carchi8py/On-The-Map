@@ -129,7 +129,9 @@ extension OTMClient {
                 
                 if let count = JSONResult.valueForKey(OTMClient.JSONResponseKeys.Count) as? Int {
                     // Total number of students
-                    var numberOfFetches = Int(floor( Double(count) / Double(OTMClient.Constants.FetchLimit) ))
+                    //var numberOfFetches = Int(floor( Double(count) / Double(OTMClient.Constants.FetchLimit) ))
+                    //for now let limit your self to 1 (100 students)
+                    var numberOfFetches = 1
                     
                     var students = [StudentInfo]()
                     self.getStudentInformationBatch(numberOfFetches) { success, results, error in
