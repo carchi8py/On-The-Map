@@ -25,14 +25,12 @@ extension OTMClient {
         //Set the Udacity object
         let jsonBody: [String: AnyObject] = [
             OTMClient.JSONBodyKey.Udacity: details]
-        println(jsonBody)
         
         /* 2. Make the request */
         let task = taskForUdacityPost(Methods.UdacitySession, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
         
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
-                println("Error at start of quthenticate")
                 completionHandler(success: false, error: error)
             } else {
                 
@@ -53,7 +51,6 @@ extension OTMClient {
                                     completionHandler(success: true, error: nil)
                                 }
                                 else {
-                                    println("Error at get User Data")
                                     completionHandler(success: false, error: nil)
                                 }
                             }
