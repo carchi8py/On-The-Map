@@ -160,7 +160,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Where are you" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-r9-Ueg">
-                                                <rect key="frame" x="245" y="59" width="111" height="20.5"/>
+                                                <rect key="frame" x="245" y="59" width="110.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -172,7 +172,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="today?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEs-f0-lIl">
-                                                <rect key="frame" x="274" y="117" width="53" height="21"/>
+                                                <rect key="frame" x="274" y="117" width="53" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -224,12 +224,44 @@
                                     <constraint firstAttribute="bottom" secondItem="fCX-nv-FgC" secondAttribute="bottom" id="tfw-nv-6Ss"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jz-iR-YiD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-qW-AbR">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBF-22-set">
+                                                <rect key="frame" x="544" y="8" width="48" height="30"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancleTouched:" destination="POA-IF-dMc" eventType="touchUpInside" id="IPG-T1-MSO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.066666666669999999" green="0.59999999999999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="oBF-22-set" secondAttribute="trailing" constant="8" id="CuN-QP-yWe"/>
+                                            <constraint firstItem="oBF-22-set" firstAttribute="top" secondItem="gWU-qW-AbR" secondAttribute="top" constant="8" id="UUp-I5-1Gv"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="gWU-qW-AbR" firstAttribute="top" secondItem="9Jz-iR-YiD" secondAttribute="top" id="cTv-5G-SCa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="I2E-t5-Dxu" firstAttribute="height" secondItem="Jtf-Gj-QY9" secondAttribute="height" id="Bay-W7-78V"/>
                             <constraint firstAttribute="width" secondItem="fCX-nv-FgC" secondAttribute="width" id="CnQ-BK-JlR"/>
+                            <constraint firstItem="gWU-qW-AbR" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="HGy-MD-BFz"/>
                             <constraint firstItem="wvT-LU-ivc" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="LXH-hr-tHC"/>
                             <constraint firstItem="I2E-t5-Dxu" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="UHk-WP-rz9"/>
+                            <constraint firstItem="9Jz-iR-YiD" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="qMV-A4-vW9"/>
+                            <constraint firstItem="9Jz-iR-YiD" firstAttribute="height" secondItem="Jtf-Gj-QY9" secondAttribute="height" id="yOK-Ue-aZV"/>
                         </constraints>
                     </view>
                     <connections>
