@@ -17,6 +17,9 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var FirstView: UIView!
     
     @IBOutlet weak var SecondView: UIView!
+    @IBOutlet weak var LInkTextField: UITextField!
+    @IBOutlet weak var MapView: MKMapView!
+    @IBOutlet weak var SubmitTouched: UIButton!
     
      override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,6 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
     
     //If the cancel button is touched, go back to tab bar view
     @IBAction func cancleTouched(sender: AnyObject) {
@@ -70,10 +72,10 @@ class PostViewController: UIViewController, UITextFieldDelegate {
                         self.FirstView.hidden = true
                         
                         // Place the annotation on the map
-                        //self.mapView.addAnnotation(annotation)
+                        self.MapView.addAnnotation(annotation)
                         
                         // Zoom into the location
-                        //self.mapView.setRegion(region, animated: true)
+                        self.MapView.setRegion(region, animated: true)
                     }
                 }
             }
