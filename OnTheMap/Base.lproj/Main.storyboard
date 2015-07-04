@@ -254,10 +254,15 @@
                                             <constraint firstItem="57L-9u-ZjT" firstAttribute="leading" secondItem="gWU-qW-AbR" secondAttribute="leading" constant="8" id="oDM-rm-2Pt"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uE5-2U-GZT">
+                                        <rect key="frame" x="0.0" y="144" width="600" height="456"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="gWU-qW-AbR" firstAttribute="top" secondItem="9Jz-iR-YiD" secondAttribute="top" id="cTv-5G-SCa"/>
+                                    <constraint firstItem="uE5-2U-GZT" firstAttribute="top" secondItem="gWU-qW-AbR" secondAttribute="bottom" id="sK1-bc-fMY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -267,6 +272,7 @@
                             <constraint firstItem="gWU-qW-AbR" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="HGy-MD-BFz"/>
                             <constraint firstItem="wvT-LU-ivc" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="LXH-hr-tHC"/>
                             <constraint firstItem="I2E-t5-Dxu" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="UHk-WP-rz9"/>
+                            <constraint firstItem="uE5-2U-GZT" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="YgB-44-n6r"/>
                             <constraint firstItem="9Jz-iR-YiD" firstAttribute="width" secondItem="Jtf-Gj-QY9" secondAttribute="width" id="qMV-A4-vW9"/>
                             <constraint firstItem="9Jz-iR-YiD" firstAttribute="height" secondItem="Jtf-Gj-QY9" secondAttribute="height" id="yOK-Ue-aZV"/>
                         </constraints>
