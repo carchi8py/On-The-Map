@@ -17,18 +17,17 @@ class TabBarViewController: UITabBarController {
         let pinButton = UIBarButtonItem(image: UIImage(named: "pin"), style: UIBarButtonItemStyle.Plain, target: self, action: "pinTouched")
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refreshTouched")
         self.navigationItem.setRightBarButtonItems([pinButton,refreshButton], animated: true)
-        
     }
     
     func pinTouched() {
         //Check to see if a user has allready post if not let them post
         if Students.sharedInstance().didStudentPreviouslyPost(OTMClient.sharedInstance().loggedInUserInfo.uniqueKey) {
+            //TODO
         } else {
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("toPostViewController", sender: self)
             }
         }
-        
     }
     
     func refreshTouched() {
