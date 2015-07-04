@@ -224,7 +224,7 @@
                                     <constraint firstAttribute="bottom" secondItem="fCX-nv-FgC" secondAttribute="bottom" id="tfw-nv-6Ss"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jz-iR-YiD">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Jz-iR-YiD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-qW-AbR">
@@ -240,11 +240,18 @@
                                                     <action selector="cancleTouched:" destination="POA-IF-dMc" eventType="touchUpInside" id="IPG-T1-MSO"/>
                                                 </connections>
                                             </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Link to Share Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="57L-9u-ZjT">
+                                                <rect key="frame" x="8" y="57" width="584" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.066666666669999999" green="0.59999999999999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="oBF-22-set" secondAttribute="trailing" constant="8" id="CuN-QP-yWe"/>
                                             <constraint firstItem="oBF-22-set" firstAttribute="top" secondItem="gWU-qW-AbR" secondAttribute="top" constant="8" id="UUp-I5-1Gv"/>
+                                            <constraint firstAttribute="trailing" secondItem="57L-9u-ZjT" secondAttribute="trailing" constant="8" id="b7S-Ob-oDr"/>
+                                            <constraint firstItem="57L-9u-ZjT" firstAttribute="leading" secondItem="gWU-qW-AbR" secondAttribute="leading" constant="8" id="oDM-rm-2Pt"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -267,6 +274,7 @@
                     <connections>
                         <outlet property="FirstView" destination="I2E-t5-Dxu" id="ebW-D3-zPo"/>
                         <outlet property="LocationTextField" destination="JWQ-wT-udh" id="fy8-xq-RUH"/>
+                        <outlet property="SecondView" destination="9Jz-iR-YiD" id="O2f-uV-OD2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H01-RG-dhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
