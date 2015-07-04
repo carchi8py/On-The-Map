@@ -81,5 +81,52 @@ class PostViewController: UIViewController, UITextFieldDelegate {
             }
         })
     }
+    
+    @IBAction func SubmitTouched(sender: UIButton) {
+        
+        // Check if shareLinkTextField is empty
+        if LInkTextField.text.isEmpty {
+            println("The link the user gave is blank")
+        }
+        
+        // Store the map string and media url
+        OTMClient.sharedInstance().loggedInUserInfo.mapString = LocationTextField.text
+        OTMClient.sharedInstance().loggedInUserInfo.mediaURL = LInkTextField.text
+        
+        // Check if the user has already posted a location
+        if Students.sharedInstance().didStudentPreviouslyPost(OTMClient.sharedInstance().loggedInUserInfo.uniqueKey) {
+            
+            // Get the student object id
+            if let objectID = Students.sharedInstance().getStudentObjectID(OTMClient.sharedInstance().loggedInUserInfo.uniqueKey) {
+                
+                OTMClient.sharedInstance().loggedInUserInfo.objectId = objectID
+                
+                // Update previous location
+                OTMClient.sharedInstance().updateStudentLocation(OTMClient.sharedInstance().loggedInUserInfo) { success, error in
+                    
+                    if success {
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                    else {
+                        println("Something bad happened in Submit Touch")
+                    }
+                }
+            }
+        }
+        else {
+            // Post new location
+            print(OTMClient.sharedInstance().loggedInUserInfo.description())
+            
+            OTMClient.sharedInstance().postStudentLocation(OTMClient.sharedInstance().loggedInUserInfo) { success, error in
+                
+                if success {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+                else {
+                    println("Something bad happened")
+                }
+            }
+        }
+    }
 }
 

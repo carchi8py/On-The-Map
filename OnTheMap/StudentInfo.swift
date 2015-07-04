@@ -41,4 +41,12 @@ class StudentInfo {
         
         return students
     }
+    
+    func description() -> String {
+        
+        let studentInfo = "object id: \(objectId)" + "\n" + "unique key: \(uniqueKey)" + "\n" + "first name: \(firstName)" + "\n" + "last name: \(lastName)" + "\n" + "latitude: \(latitude)" + "\n" + "longitude: \(longitude)" + "\n" + "map string: \(mapString)" + "\n" + "media URL: \(mediaURL)"
+        
+        return studentInfo
+        
+    }
 }

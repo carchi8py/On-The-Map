@@ -26,6 +26,7 @@ extension OTMClient {
         static let UdacityUserData = "users/{id}"
         
         static let ParseStudentLocation = "StudentLocation"
+        static let ParseUpdateStudentLocation = "StudentLocation/{id}"
     }
     //URL Keys
     struct URLKeys {

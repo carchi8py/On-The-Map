@@ -212,4 +212,77 @@ extension OTMClient {
             }
         }
     }
+    
+    func updateStudentLocation(student: StudentInfo, completionHandler: (success: Bool, error: NSError?) -> Void) {
+        
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        var parameters = [String: AnyObject]()
+        var jsonBody: [String:AnyObject] = [
+            OTMClient.JSONResponseKeys.UniqueKey: student.uniqueKey,
+            OTMClient.JSONResponseKeys.FirstName: student.firstName,
+            OTMClient.JSONResponseKeys.LastName: student.lastName,
+            OTMClient.JSONResponseKeys.Latitude: student.latitude,
+            OTMClient.JSONResponseKeys.Longitude: student.longitude,
+            OTMClient.JSONResponseKeys.MapString: student.mapString,
+            OTMClient.JSONResponseKeys.MediaURL: student.mediaURL
+        ]
+        var mutableMethod : String = Methods.ParseUpdateStudentLocation
+        mutableMethod = OTMClient.subtituteKeyInMethod(mutableMethod, key: OTMClient.URLKeys.UserID, value:student.objectId)!
+        
+        /* 2. Make the request */
+        taskForParsePost(mutableMethod, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
+            
+            /* 3. Send the desired value(s) to completion handler */
+            if let error = error {
+                // Connection failure or request timeout on POST
+                completionHandler(success: false, error: error)
+            }
+            else {
+                // Check if updatedAt is returned
+                if let updatedAt = JSONResult.valueForKey(OTMClient.JSONResponseKeys.UpdatedAt) as? NSString {
+                    completionHandler(success: true, error:nil)
+                }
+                else {
+                    // Process parsing errors
+                    completionHandler(success: false, error: NSError(domain: "updateStudentLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse updateStudentLocation"]))
+                }
+            }
+        }
+    }
+    
+    func postStudentLocation(student: StudentInfo, completionHandler: (success: Bool, error: NSError?) -> Void) {
+        
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        var parameters = [String: AnyObject]()
+        var jsonBody: [String:AnyObject] = [
+            OTMClient.JSONResponseKeys.UniqueKey: student.uniqueKey,
+            OTMClient.JSONResponseKeys.FirstName: student.firstName,
+            OTMClient.JSONResponseKeys.LastName: student.lastName,
+            OTMClient.JSONResponseKeys.Latitude: student.latitude,
+            OTMClient.JSONResponseKeys.Longitude: student.longitude,
+            OTMClient.JSONResponseKeys.MapString: student.mapString,
+            OTMClient.JSONResponseKeys.MediaURL: student.mediaURL
+        ]
+        
+        /* 2. Make the request */
+        taskForParsePost(OTMClient.Methods.ParseStudentLocation, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
+            
+            /* 3. Send the desired value(s) to completion handler */
+            if let error = error {
+                // Connection failure or request timeout on POST
+                completionHandler(success: false, error: error)
+            }
+            else {
+                // Check if object ID is returned
+                if let objectID = JSONResult.valueForKey(OTMClient.JSONResponseKeys.ObjectID) as? NSString {
+                    completionHandler(success: true, error:nil)
+                }
+                else {
+                    // Process parsing errors
+                    completionHandler(success: false, error: NSError(domain: "postStudentLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse postStudentLocation"]))
+                }
+            }
+        }
+    }
+    
 }
