@@ -16,6 +16,7 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var listTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.listTableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
