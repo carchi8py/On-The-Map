@@ -17,13 +17,30 @@ class TabBarViewController: UITabBarController {
         let pinButton = UIBarButtonItem(image: UIImage(named: "pin"), style: UIBarButtonItemStyle.Plain, target: self, action: "pinTouched")
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refreshTouched")
         self.navigationItem.setRightBarButtonItems([pinButton,refreshButton], animated: true)
+        
+        self.refreshTouched()
     }
     
     func pinTouched() {
+        print("Touched")
         //Check to see if a user has allready post if not let them post
         if Students.sharedInstance().didStudentPreviouslyPost(OTMClient.sharedInstance().loggedInUserInfo.uniqueKey) {
-            //TODO
+            let alertController = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .Alert)
+            let overwriteAction = UIAlertAction(title: "Overwrite", style: .Default, handler: { action in
+                
+                // Segue to the post view controller
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("toPostViewController", sender: self)
+                }
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            alertController.addAction(overwriteAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            print("need to write code")
         } else {
+            print("You are good")
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("toPostViewController", sender: self)
             }
