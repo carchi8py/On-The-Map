@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
         self.waitingOnServer.hidden = true
     }
     
+    //When the user clicks on login we will start the UIActivityIndicator so
+    // that they know we are waiting on server
     @IBAction func LoginPressed(sender: AnyObject) {
         self.waitingOnServer.startAnimating()
         self.waitingOnServer.hidden = false
@@ -33,6 +35,7 @@ class LoginViewController: UIViewController {
     func authenticateWithUdacity() {
         OTMClient.sharedInstance().authenticateWithUdacity(email.text, password: password.text, completionHandler: { success,error in
             
+            //Once we get a responce from the server we stop the UIActivityIndicator
             self.waitingOnServer.stopAnimating()
             if success {
                 self.loginWorked()
@@ -56,7 +59,6 @@ class LoginViewController: UIViewController {
     }
     
     func displayUIAlert(title: String, msg: String){
-        println("We are in Display Alert")
         //let controller = UIAlertController()
         //controller.title = title
         //controller.message = msg
@@ -68,7 +70,6 @@ class LoginViewController: UIViewController {
         //controller.addAction(okAction)
         //self.presentViewController(controller, animated: true, completion: nil)
          UIAlertView(title: title, message: msg, delegate: nil, cancelButtonTitle: "OK").show()
-        
     }
 }
 

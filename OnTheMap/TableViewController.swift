@@ -64,7 +64,6 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         return students.count
     }
     
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! UITableViewCell
         
@@ -107,5 +106,4 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         }
         return urlString
     }
-
 }

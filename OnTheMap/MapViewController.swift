@@ -36,7 +36,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     func studentInformationRefreshed(notification: NSNotification) {
         // Refresh the table when reload button is pressed
-        println("studentInformationRefreshed")
         self.loadMapData()
     }
     
@@ -65,7 +64,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             annotations.append(annotation)
             
         }
-        
         // When the array is complete, we add the annotations to the map.
         dispatch_async(dispatch_get_main_queue()) {
             self.mapView.addAnnotations(annotations)
