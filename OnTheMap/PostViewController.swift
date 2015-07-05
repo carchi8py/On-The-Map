@@ -94,7 +94,10 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         
         // Check if shareLinkTextField is empty
         if LInkTextField.text.isEmpty {
-            println("The link the user gave is blank")
+            let alertController = UIAlertController(title: "", message: "Link is required", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alertController.addAction(okAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
         
         // Store the map string and media url
