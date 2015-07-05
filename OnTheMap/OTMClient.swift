@@ -176,7 +176,6 @@ class OTMClient : NSObject {
                 OTMClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
             }
         }
-        
         /* 7. Start the request */
         task.resume()
         return task
