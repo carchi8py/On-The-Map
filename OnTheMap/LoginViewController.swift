@@ -28,7 +28,6 @@ class LoginViewController: UIViewController {
         self.waitingOnServer.startAnimating()
         self.waitingOnServer.hidden = false
         authenticateWithUdacity()
-        
     }
     
     func authenticateWithUdacity() {
@@ -36,11 +35,9 @@ class LoginViewController: UIViewController {
             
             self.waitingOnServer.stopAnimating()
             if success {
-                println("it worked")
                 self.loginWorked()
             } else {
-                self.displayError(error!.localizedDescription)
-                println("If Failed")
+                self.displayError()
             }
         })
     }
@@ -48,19 +45,29 @@ class LoginViewController: UIViewController {
     func loginWorked() {
         //This function get called when we have logged in, it segway's us to
         //the map
-        
         dispatch_async(dispatch_get_main_queue()) {
             self.performSegueWithIdentifier("toNavigationController", sender: self)
         }
     }
     
-    func displayError(errorString: String?)
+    func displayError()
     {
         self.displayUIAlert("Missing information!", msg: "Must provide username and password to login.")
     }
     
     func displayUIAlert(title: String, msg: String){
-        UIAlertView(title: title, message: msg, delegate: nil, cancelButtonTitle: "Ok").show()
+        println("We are in Display Alert")
+        //let controller = UIAlertController()
+        //controller.title = title
+        //controller.message = msg
+        
+        //let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default) {
+       //     action in self.dismissViewControllerAnimated(true , completion: nil)
+       // }
+        
+        //controller.addAction(okAction)
+        //self.presentViewController(controller, animated: true, completion: nil)
+         UIAlertView(title: title, message: msg, delegate: nil, cancelButtonTitle: "OK").show()
     }
 }
 
