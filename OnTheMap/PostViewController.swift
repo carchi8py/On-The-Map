@@ -37,49 +37,57 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func FindTouched(sender: UIButton) {
-        //First Step display the map view -- going to skip this for now and
-        //Just see if the method is working
-        
-        let address = LocationTextField.text
-        
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address, completionHandler: { results, error in
+        //Check to see if there user put a Location or if it blank
+        if LocationTextField.text.isEmpty {
+            let alertController = UIAlertController(title: "", message: "A location is required", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alertController.addAction(okAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            let address = LocationTextField.text
             
-            if let error = error {
-                println("Something bad happened in finding location")
-            } else {
-                if let placemarks = results as? [CLPlacemark] {
-                    
-                    // Get the last location in the placemarks array
-                    let placemark = (placemarks.last)!
-                    let coordinate = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude)
-                    
-                    // Store the user coordinates
-                    OTMClient.sharedInstance().loggedInUserInfo.latitude = placemark.location.coordinate.latitude
-                    OTMClient.sharedInstance().loggedInUserInfo.longitude = placemark.location.coordinate.longitude
-                    
-                    // Create a annotation
-                    var annotation = MKPointAnnotation()
-                    annotation.coordinate = coordinate
-                    
-                    let deltaX = 0.01
-                    let deltaY = 0.01
-                    let region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(deltaX, deltaY))
-                    
-                    // When the array is complete, we add the annotations to the map.
-                    dispatch_async(dispatch_get_main_queue()) {
-                        // Hide the first view
-                        self.FirstView.hidden = true
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(address, completionHandler: { results, error in
+                
+                if let error = error {
+                    let alertController = UIAlertController(title: "Location Not Found", message: "Please try again", preferredStyle: .Alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                    alertController.addAction(okAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                } else {
+                    if let placemarks = results as? [CLPlacemark] {
                         
-                        // Place the annotation on the map
-                        self.MapView.addAnnotation(annotation)
+                        // Get the last location in the placemarks array
+                        let placemark = (placemarks.last)!
+                        let coordinate = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude)
                         
-                        // Zoom into the location
-                        self.MapView.setRegion(region, animated: true)
+                        // Store the user coordinates
+                        OTMClient.sharedInstance().loggedInUserInfo.latitude = placemark.location.coordinate.latitude
+                        OTMClient.sharedInstance().loggedInUserInfo.longitude = placemark.location.coordinate.longitude
+                        
+                        // Create a annotation
+                        var annotation = MKPointAnnotation()
+                        annotation.coordinate = coordinate
+                        
+                        let deltaX = 0.01
+                        let deltaY = 0.01
+                        let region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(deltaX, deltaY))
+                        
+                        // When the array is complete, we add the annotations to the map.
+                        dispatch_async(dispatch_get_main_queue()) {
+                            // Hide the first view
+                            self.FirstView.hidden = true
+                            
+                            // Place the annotation on the map
+                            self.MapView.addAnnotation(annotation)
+                            
+                            // Zoom into the location
+                            self.MapView.setRegion(region, animated: true)
+                        }
                     }
                 }
-            }
-        })
+            })
+        }
     }
     
     @IBAction func SubmitTouched(sender: UIButton) {
