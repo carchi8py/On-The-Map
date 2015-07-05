@@ -85,7 +85,9 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         let studentURL = students[indexPath.row].mediaURL
         
         // Open safari to the students link
-        if let url = NSURL(string: studentURL) {
+        let newurl = fixLinks(studentURL)
+        if let url = NSURL(string: newurl) {
+            println(url)
             if UIApplication.sharedApplication().canOpenURL(url){
                 UIApplication.sharedApplication().openURL(url)
             }
@@ -93,6 +95,17 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
                 println("Something bad happened on table view")
             }
         }
+    }
+    
+    // A lot of people don't include the http part of a link
+    // This check see if they have or not. If they haven't automaticly add it
+    func fixLinks(urlString: String) -> String
+    {
+        if urlString.rangeOfString("http://www.") == nil {
+            let newString = "http://www." + urlString
+            return newString
+        }
+        return urlString
     }
 
 }
