@@ -232,9 +232,10 @@ extension OTMClient {
         ]
         var mutableMethod : String = Methods.ParseUpdateStudentLocation
         mutableMethod = OTMClient.subtituteKeyInMethod(mutableMethod, key: OTMClient.URLKeys.UserID, value:student.objectId)!
+        println(mutableMethod)
         
         /* 2. Make the request */
-        taskForParsePost(mutableMethod, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
+        taskForParsePost("PUT", method: mutableMethod, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
             
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
@@ -243,6 +244,8 @@ extension OTMClient {
             }
             else {
                 // Check if updatedAt is returned
+                println(JSONResult)
+                println(JSONResult.valueForKey(OTMClient.JSONResponseKeys.UpdatedAt))
                 if let updatedAt = JSONResult.valueForKey(OTMClient.JSONResponseKeys.UpdatedAt) as? NSString {
                     completionHandler(success: true, error:nil)
                 }
@@ -269,7 +272,7 @@ extension OTMClient {
         ]
         
         /* 2. Make the request */
-        taskForParsePost(OTMClient.Methods.ParseStudentLocation, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
+        taskForParsePost("POST", method: OTMClient.Methods.ParseStudentLocation, parameters: parameters, jsonBody: jsonBody) { JSONResult, error in
             
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {

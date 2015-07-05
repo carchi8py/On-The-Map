@@ -108,6 +108,8 @@ class PostViewController: UIViewController, UITextFieldDelegate {
                         self.dismissViewControllerAnimated(true, completion: nil)
                     }
                     else {
+                        println()
+                        println(error)
                         println("Something bad happened in Submit Touch")
                     }
                 }
