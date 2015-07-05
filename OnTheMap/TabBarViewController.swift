@@ -22,7 +22,6 @@ class TabBarViewController: UITabBarController {
     }
     
     func pinTouched() {
-        print("Touched")
         //Check to see if a user has allready post if not let them post
         if Students.sharedInstance().didStudentPreviouslyPost(OTMClient.sharedInstance().loggedInUserInfo.uniqueKey) {
             let alertController = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .Alert)
@@ -38,9 +37,7 @@ class TabBarViewController: UITabBarController {
             alertController.addAction(overwriteAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
-            print("need to write code")
         } else {
-            print("You are good")
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("toPostViewController", sender: self)
             }

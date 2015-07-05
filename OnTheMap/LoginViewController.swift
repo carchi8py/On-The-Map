@@ -68,6 +68,7 @@ class LoginViewController: UIViewController {
         //controller.addAction(okAction)
         //self.presentViewController(controller, animated: true, completion: nil)
          UIAlertView(title: title, message: msg, delegate: nil, cancelButtonTitle: "OK").show()
+        
     }
 }
 
