@@ -24,7 +24,8 @@ class TabBarViewController: UITabBarController {
     func pinTouched() {
         //Check to see if a user has allready post if not let them post
         if Students.sharedInstance().didStudentPreviouslyPost(OTMClient.sharedInstance().loggedInUserInfo.uniqueKey) {
-            let alertController = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite your current location?", preferredStyle: .Alert)
+            let message = "User \"" + OTMClient.sharedInstance().loggedInUserInfo.firstName + " " + OTMClient.sharedInstance().loggedInUserInfo.lastName + "\" Has Already Posted a Student Location. Would You Like to Overwrite Their Location?"
+            let alertController = UIAlertController(title: "", message: message, preferredStyle: .Alert)
             let overwriteAction = UIAlertAction(title: "Overwrite", style: .Default, handler: { action in
                 
                 // Segue to the post view controller
@@ -33,8 +34,8 @@ class TabBarViewController: UITabBarController {
                 }
             })
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            alertController.addAction(cancelAction)
             alertController.addAction(overwriteAction)
+            alertController.addAction(cancelAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
         } else {
