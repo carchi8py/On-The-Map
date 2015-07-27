@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		274F12AE1B65E99A00309897 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274F12AD1B65E99A00309897 /* File.swift */; };
+		274F12AE1B65E99A00309897 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274F12AD1B65E99A00309897 /* Reachability.swift */; };
 		27DC8AC41B47272600163E9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AC31B47272600163E9B /* AppDelegate.swift */; };
 		27DC8AC61B47272600163E9B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC8AC51B47272600163E9B /* LoginViewController.swift */; };
 		27DC8AC91B47272600163E9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27DC8AC71B47272600163E9B /* Main.storyboard */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		274F12AD1B65E99A00309897 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		274F12AD1B65E99A00309897 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		27DC8ABE1B47272600163E9B /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27DC8AC21B47272600163E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27DC8AC31B47272600163E9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				27DC8AF21B473EAA00163E9B /* OTMConvenience.swift */,
 				27DC8AF41B47500B00163E9B /* StudentInfo.swift */,
 				27DC8AFC1B479B6500163E9B /* Students.swift */,
-				274F12AD1B65E99A00309897 /* File.swift */,
+				274F12AD1B65E99A00309897 /* Reachability.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27DC8AF91B4770D600163E9B /* TabBarViewController.swift in Sources */,
-				274F12AE1B65E99A00309897 /* File.swift in Sources */,
+				274F12AE1B65E99A00309897 /* Reachability.swift in Sources */,
 				27DC8AF31B473EAA00163E9B /* OTMConvenience.swift in Sources */,
 				27DC8AC61B47272600163E9B /* LoginViewController.swift in Sources */,
 				27DC8AFF1B47AADE00163E9B /* TableViewController.swift in Sources */,
