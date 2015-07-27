@@ -68,7 +68,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     // decoration alternatives. Notice the similarity between this method and the cellForRowAtIndexPath
     // method in TableViewDataSource.
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView!  {
-        println("Here we are")
         
         let reuseId = "pin"
         
@@ -78,7 +77,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinColor = .Red
-            println("WE are in")
             pinView!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
         }
         else {
@@ -88,37 +86,10 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         return pinView
     }
     func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        println("CLICKED")
         
         if control == annotationView.rightCalloutAccessoryView {
-            println("HI")
             let app = UIApplication.sharedApplication()
-            app.openURL(NSURL(string: fixLinks(annotationView.annotation.subtitle!))!)
-            
-            // Get the student's URL
-            //let studentURL = annotationView.annotation.subtitle!
-            
-            // Open safari to the students link
-            //let newurl = fixLinks(studentURL)
-            //if let newurl = NSURL(string: studentURL) {
-            //    print(newurl)
-            //    if UIApplication.sharedApplication().canOpenURL(newurl){
-            //        UIApplication.sharedApplication().openURL(newurl)
-             //   }
-             //   else {
-            //        println("Somethng bad happned on the map")
-            //    }
-            //}
+            app.openURL(NSURL(string: annotationView.annotation.subtitle!)!)
         }
-    }
-    // A lot of people don't include the http part of a link
-    // This check see if they have or not. If they haven't automaticly add it
-    func fixLinks(urlString: String) -> String
-    {
-        if urlString.rangeOfString("http://www.") == nil {
-            let newString = "http://www." + urlString
-            return newString
-        }
-        return urlString
     }
 }
