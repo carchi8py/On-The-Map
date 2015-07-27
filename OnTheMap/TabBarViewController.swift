@@ -46,27 +46,46 @@ class TabBarViewController: UITabBarController {
     }
     
     func refreshTouched() {
-        // Load the student information
-            Students.sharedInstance().getStudentInformation() { success, error in
-            if success {
-                NSNotificationCenter.defaultCenter().postNotificationName(OTMClient.Notifications.StudentInformationDownloaded, object: self)
+        // Give an error if there is not network connection
+        if Reachability.isConnectedToNetwork() == true {
+            // Load the student information
+                Students.sharedInstance().getStudentInformation() { success, error in
+                if success {
+                    NSNotificationCenter.defaultCenter().postNotificationName(OTMClient.Notifications.StudentInformationDownloaded, object: self)
+                }
+                else {
+                    println("Refresh touched failed")
+                }
             }
-            else {
-                println("Refresh touched failed")
-            }
+        } else {
+            self.displayUIAlert("No Network Connection", msg: "Must be connect to the internet to use this app")
         }
     }
     
     @IBAction func logOutTouched(sender: AnyObject) {
-        //Logs the user out if they push the bottom
-        OTMClient.sharedInstance().logOutWithUdacity() { success, error in
-            // Check if logout was successful
-            if success {
-                self.dismissViewControllerAnimated(true, completion: nil)
+        // Give an error if there is not network connection
+        if Reachability.isConnectedToNetwork() == true {
+            //Logs the user out if they push the bottom
+            OTMClient.sharedInstance().logOutWithUdacity() { success, error in
+                // Check if logout was successful
+                if success {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+                else {
+                    println("Something bad happened")
+                }
             }
-            else {
-                println("Something bad happened")
-            }
+        } else {
+            self.displayUIAlert("No Network Connection", msg: "Must be connect to the internet to use this app")
         }
+    }
+    
+    func displayError()
+    {
+        self.displayUIAlert("Missing information!", msg: "Must provide username and password to login.")
+    }
+    
+    func displayUIAlert(title: String, msg: String){
+        UIAlertView(title: title, message: msg, delegate: nil, cancelButtonTitle: "OK").show()
     }
 }
