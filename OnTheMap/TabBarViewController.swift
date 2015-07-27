@@ -47,6 +47,7 @@ class TabBarViewController: UITabBarController {
     
     func refreshTouched() {
         // Give an error if there is not network connection
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         if Reachability.isConnectedToNetwork() == true {
             // Load the student information
                 Students.sharedInstance().getStudentInformation() { success, error in
@@ -56,6 +57,7 @@ class TabBarViewController: UITabBarController {
                 else {
                     println("Refresh touched failed")
                 }
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         } else {
             self.displayUIAlert("No Network Connection", msg: "Must be connected to the internet to use this app")
@@ -64,6 +66,7 @@ class TabBarViewController: UITabBarController {
     
     @IBAction func logOutTouched(sender: AnyObject) {
         // Give an error if there is not network connection
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         if Reachability.isConnectedToNetwork() == true {
             //Logs the user out if they push the bottom
             OTMClient.sharedInstance().logOutWithUdacity() { success, error in
@@ -74,6 +77,7 @@ class TabBarViewController: UITabBarController {
                 else {
                     println("Something bad happened")
                 }
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         } else {
             self.displayUIAlert("No Network Connection", msg: "Must be connected to the internet to use this app")
