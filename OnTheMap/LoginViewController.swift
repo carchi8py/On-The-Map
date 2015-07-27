@@ -33,18 +33,24 @@ class LoginViewController: UIViewController {
     }
     
     func authenticateWithUdacity() {
-        OTMClient.sharedInstance().authenticateWithUdacity(email.text, password: password.text, completionHandler: { success,error in
-            
-            //Once we get a responce from the server we stop the UIActivityIndicator
-            self.waitingOnServer.stopAnimating()
-            if success {
-                self.loginWorked()
-            } else {
-                self.displayError()
-            }
-        })
+        //Check to see if we have network connection, If not give the user an error
+        if Reachability.isConnectedToNetwork() == true {
+
+            OTMClient.sharedInstance().authenticateWithUdacity(email.text, password: password.text, completionHandler: { success,error in
+                
+                //Once we get a responce from the server we stop the UIActivityIndicator
+                self.waitingOnServer.stopAnimating()
+                if success {
+                    self.loginWorked()
+                } else {
+                    self.displayError()
+                }
+            })
+        } else {
+            self.displayUIAlert("No Network Connection", msg: "Must be connect to the internet to use this app")
+        }
     }
-    
+        
     func loginWorked() {
         //This function get called when we have logged in, it segway's us to
         //the map
