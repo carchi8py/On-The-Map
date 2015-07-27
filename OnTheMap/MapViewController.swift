@@ -15,23 +15,15 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Make a copy of the student information from the model
-        self.loadMapData()
-        
-        // Subscribe to student information refreshed notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "studentInformationRefreshed:", name: OTMClient.Notifications.StudentInformationDownloaded, object: nil)
+        self.loadMapData()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Unsubscribe to notifications
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: OTMClient.Notifications.StudentInformationDownloaded, object: nil)
+       NSNotificationCenter.defaultCenter().removeObserver(self, name: OTMClient.Notifications.StudentInformationDownloaded, object: nil)
     }
     
     func studentInformationRefreshed(notification: NSNotification) {
@@ -43,8 +35,8 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         
         // Delete any previous annotations
         var annotations = [MKPointAnnotation]()
-        let annotationsOnMap = mapView.annotations;
-        self.mapView.removeAnnotations(annotationsOnMap)
+        //let annotationsOnMap = mapView.annotations;
+        //self.mapView.removeAnnotations(annotationsOnMap)
         
         // 1. Get student information from the model
         
@@ -75,7 +67,8 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     // Here we create a view with a "right callout accessory view". You might choose to look into other
     // decoration alternatives. Notice the similarity between this method and the cellForRowAtIndexPath
     // method in TableViewDataSource.
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView!  {
+        println("Here we are")
         
         let reuseId = "pin"
         
@@ -85,6 +78,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinColor = .Red
+            println("WE are in")
             pinView!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
         }
         else {
@@ -94,21 +88,37 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         return pinView
     }
     func mapView(mapView: MKMapView!, annotationView: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        println("CLICKED")
         
         if control == annotationView.rightCalloutAccessoryView {
+            println("HI")
+            let app = UIApplication.sharedApplication()
+            app.openURL(NSURL(string: fixLinks(annotationView.annotation.subtitle!))!)
             
             // Get the student's URL
-            let studentURL = annotationView.annotation.subtitle!
+            //let studentURL = annotationView.annotation.subtitle!
             
-            /// Open safari to the students link
-            if let url = NSURL(string: studentURL) {
-                if UIApplication.sharedApplication().canOpenURL(url){
-                    UIApplication.sharedApplication().openURL(url)
-                }
-                else {
-                    println("Somethng bad happned on the map")
-                }
-            }
+            // Open safari to the students link
+            //let newurl = fixLinks(studentURL)
+            //if let newurl = NSURL(string: studentURL) {
+            //    print(newurl)
+            //    if UIApplication.sharedApplication().canOpenURL(newurl){
+            //        UIApplication.sharedApplication().openURL(newurl)
+             //   }
+             //   else {
+            //        println("Somethng bad happned on the map")
+            //    }
+            //}
         }
+    }
+    // A lot of people don't include the http part of a link
+    // This check see if they have or not. If they haven't automaticly add it
+    func fixLinks(urlString: String) -> String
+    {
+        if urlString.rangeOfString("http://www.") == nil {
+            let newString = "http://www." + urlString
+            return newString
+        }
+        return urlString
     }
 }
