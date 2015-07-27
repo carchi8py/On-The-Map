@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
                 }
             })
         } else {
-            self.displayUIAlert("No Network Connection", msg: "Must be connect to the internet to use this app")
+            self.displayUIAlert("No Network Connection", msg: "Must be connected to the internet to use this app")
         }
     }
         
