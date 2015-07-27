@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StudentInfo {
+struct StudentInfo {
     
     var objectId: String = ""
     var uniqueKey: String = ""
