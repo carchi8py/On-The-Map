@@ -39,7 +39,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     func loadMapData() {
         
-        println("KLJDF:LKJDL:KFJ")
         // Delete any previous annotations
         var annotations = [MKPointAnnotation]()
         
