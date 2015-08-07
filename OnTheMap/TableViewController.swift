@@ -100,8 +100,8 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     // This check see if they have or not. If they haven't automaticly add it
     func fixLinks(urlString: String) -> String
     {
-        if urlString.rangeOfString("http://www.") == nil {
-            let newString = "http://www." + urlString
+        if urlString.rangeOfString("http://") == nil {
+            let newString = "http://" + urlString
             return newString
         }
         return urlString
