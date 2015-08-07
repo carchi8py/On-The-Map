@@ -24,6 +24,7 @@ class PostViewController: UIViewController, UITextFieldDelegate {
      override func viewDidLoad() {
         super.viewDidLoad()
         LocationTextField.delegate = self
+        LInkTextField.delegate = self
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
