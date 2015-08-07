@@ -20,11 +20,13 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var LInkTextField: UITextField!
     @IBOutlet weak var MapView: MKMapView!
     @IBOutlet weak var SubmitTouched: UIButton!
+    @IBOutlet weak var Indicator: UIActivityIndicatorView!
     
      override func viewDidLoad() {
         super.viewDidLoad()
         LocationTextField.delegate = self
         LInkTextField.delegate = self
+        self.Indicator.hidden = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -45,17 +47,21 @@ class PostViewController: UIViewController, UITextFieldDelegate {
             alertController.addAction(okAction)
             self.presentViewController(alertController, animated: true, completion: nil)
         } else {
+            self.Indicator.startAnimating()
+            self.Indicator.hidden = false
             let address = LocationTextField.text
             
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(address, completionHandler: { results, error in
                 
                 if let error = error {
+                    self.Indicator.hidden = true
                     let alertController = UIAlertController(title: "Location Not Found", message: "Please try again", preferredStyle: .Alert)
                     let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
                     alertController.addAction(okAction)
                     self.presentViewController(alertController, animated: true, completion: nil)
                 } else {
+                    self.Indicator.hidden = true
                     if let placemarks = results as? [CLPlacemark] {
                         
                         // Get the last location in the placemarks array

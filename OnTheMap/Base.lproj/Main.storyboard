@@ -291,12 +291,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uhi-Ew-wxc">
+                                        <rect key="frame" x="282" y="321" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.066666666669999999" green="0.59999999999999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="JWQ-wT-udh" firstAttribute="top" secondItem="I2E-t5-Dxu" secondAttribute="top" constant="209" id="41y-kg-DSy"/>
                                     <constraint firstItem="JWQ-wT-udh" firstAttribute="leading" secondItem="I2E-t5-Dxu" secondAttribute="leading" constant="8" id="GOv-XM-zhA"/>
                                     <constraint firstAttribute="trailing" secondItem="JWQ-wT-udh" secondAttribute="trailing" constant="8" id="MVK-mZ-Kvy"/>
+                                    <constraint firstAttribute="centerX" secondItem="uhi-Ew-wxc" secondAttribute="centerX" constant="-0.5" id="gvT-FN-TQf"/>
+                                    <constraint firstItem="uhi-Ew-wxc" firstAttribute="top" secondItem="JWQ-wT-udh" secondAttribute="bottom" constant="82" id="j7k-31-S6j"/>
                                     <constraint firstItem="wvT-LU-ivc" firstAttribute="top" secondItem="I2E-t5-Dxu" secondAttribute="top" id="sef-2a-KKJ"/>
                                     <constraint firstAttribute="bottom" secondItem="fCX-nv-FgC" secondAttribute="bottom" id="tfw-nv-6Ss"/>
                                 </constraints>
@@ -316,6 +321,7 @@
                     <connections>
                         <outlet property="FindButton" destination="P2g-HE-hmx" id="FIi-8h-xPj"/>
                         <outlet property="FirstView" destination="I2E-t5-Dxu" id="ebW-D3-zPo"/>
+                        <outlet property="Indicator" destination="uhi-Ew-wxc" id="rLr-xg-CJl"/>
                         <outlet property="LInkTextField" destination="57L-9u-ZjT" id="dHN-w9-2EB"/>
                         <outlet property="LocationTextField" destination="JWQ-wT-udh" id="fy8-xq-RUH"/>
                         <outlet property="MapView" destination="WBu-wd-bDU" id="WeM-f3-jVp"/>
