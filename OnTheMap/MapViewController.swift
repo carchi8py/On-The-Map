@@ -15,10 +15,16 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "studentInformationRefreshed:", name: OTMClient.Notifications.StudentInformationDownloaded, object: nil)
         self.loadMapData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.loadMapData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "studentInformationRefreshed:", name: OTMClient.Notifications.StudentInformationDownloaded, object: nil)
+
+    }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -33,15 +39,19 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     func loadMapData() {
         
+        println("KLJDF:LKJDL:KFJ")
         // Delete any previous annotations
         var annotations = [MKPointAnnotation]()
-        //let annotationsOnMap = mapView.annotations;
-        //self.mapView.removeAnnotations(annotationsOnMap)
+        
+        let annotationsOnMap = mapView.annotations;
+        self.mapView.removeAnnotations(mapView.annotations)
         
         // 1. Get student information from the model
         
         // Parse the student information to create an array of annotations
         for student in Students.sharedInstance().students {
+            print(student.firstName + student.lastName)
+            println(student.latitude)
             
             // The lat and long are used to create a CLLocationCoordinates2D instance.
             let coordinate = CLLocationCoordinate2D(latitude: student.latitude, longitude: student.longitude)
