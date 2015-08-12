@@ -19,7 +19,8 @@ class Students {
             
             if success {
                 if let students = results {
-                    self.students = students
+                    let students2 = students.sorted{$0.updatedAt > $1.updatedAt}
+                    self.students = students2
                 }
                 completionHandler(success: true, error: nil)
             } else {

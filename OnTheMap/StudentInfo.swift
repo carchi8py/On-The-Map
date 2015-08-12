@@ -18,6 +18,7 @@ struct StudentInfo {
     var longitude: Double = 0.0
     var mapString: String = ""
     var mediaURL: String = ""
+    var updatedAt: String = ""
     
     init(){}
     
@@ -30,6 +31,8 @@ struct StudentInfo {
         longitude = jsonDisctionary[OTMClient.JSONResponseKeys.Longitude] as! Double
         mapString = jsonDisctionary[OTMClient.JSONResponseKeys.MapString] as! String
         mediaURL = jsonDisctionary[OTMClient.JSONResponseKeys.MediaURL] as! String
+        updatedAt = jsonDisctionary[OTMClient.JSONResponseKeys.UpdatedAt] as! String
+        
     }
     
     static func studentsFromResults(results: [[String : AnyObject]]) -> [StudentInfo] {
@@ -44,7 +47,7 @@ struct StudentInfo {
     
     func description() -> String {
         
-        let studentInfo = "object id: \(objectId)" + "\n" + "unique key: \(uniqueKey)" + "\n" + "first name: \(firstName)" + "\n" + "last name: \(lastName)" + "\n" + "latitude: \(latitude)" + "\n" + "longitude: \(longitude)" + "\n" + "map string: \(mapString)" + "\n" + "media URL: \(mediaURL)"
+        let studentInfo = "object id: \(objectId)" + "\n" + "unique key: \(uniqueKey)" + "\n" + "first name: \(firstName)" + "\n" + "last name: \(lastName)" + "\n" + "latitude: \(latitude)" + "\n" + "longitude: \(longitude)" + "\n" + "map string: \(mapString)" + "\n" + "Updated At:" + (updatedAt) +  "media URL: \(mediaURL)"
         
         return studentInfo
         
