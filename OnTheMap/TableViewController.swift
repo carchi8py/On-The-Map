@@ -10,7 +10,6 @@ import UIKit
 
 class TableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var students = [StudentInfo]()
     let cellID = "StudentCell"
     
     @IBOutlet weak var listTableView: UITableView!
@@ -36,7 +35,6 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     func getStudentInformationForTable() {
         Students.sharedInstance().getStudentInformation() { success, error in
             if success {
-                self.students = Students.sharedInstance().students
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.listTableView.reloadData()
@@ -61,15 +59,15 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return students.count
+        return Students.sharedInstance().students.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! UITableViewCell
         
         // Get the student details
-        let firstName = students[indexPath.row].firstName
-        let lastName = students[indexPath.row].lastName
+        let firstName = Students.sharedInstance().students[indexPath.row].firstName
+        let lastName = Students.sharedInstance().students[indexPath.row].lastName
         
         // Configure the cell...
         cell.imageView?.image = UIImage(named: "pin_icon")
@@ -81,7 +79,7 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // Get the student's URL
-        let studentURL = students[indexPath.row].mediaURL
+        let studentURL = Students.sharedInstance().students[indexPath.row].mediaURL
         
         // Open safari to the students link
         let newurl = fixLinks(studentURL)
